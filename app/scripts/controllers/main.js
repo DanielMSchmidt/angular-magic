@@ -14,7 +14,9 @@ angular.module('angularMagicApp')
       commanderDamage: 0
     };
 
-    localStorageService.get('users') || localStorageService.set('users', {});
+    if (!localStorageService.get('users')) {
+      localStorageService.set('users', {});
+    }
     localStorageService.bind($scope, 'users');
 
     $scope.addUser = function(){
@@ -24,5 +26,13 @@ angular.module('angularMagicApp')
 
     $scope.changeValue = function(user, value, diff) {
       $scope.users[user][value] += diff;
+    };
+
+    $scope.resetUserNamed = function(name) {
+      $scope.users[name] = angular.copy(user);
+    };
+
+    $scope.removeUserNamed = function(user) {
+      delete $scope.users[user];
     };
   });
