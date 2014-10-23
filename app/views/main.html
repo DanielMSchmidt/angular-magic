@@ -1,0 +1,36 @@
+<form ng-submit="addUser()">
+   <input type="text" placeholder="Enter name" ng-model="name">
+  <input type="submit">
+</form>
+
+<div class="row">
+  <div class="col-xs-3">
+    Name
+  </div>
+  <div class="col-xs-3">
+    Life Points
+  </div>
+  <div class="col-xs-3">
+    Commander Damage
+  </div>
+  <div class="col-xs-3">
+    Actions
+  </div>
+</div>
+<div class="row" ng-repeat="(name, user) in users" style="padding-bottom: 50px;">
+  <div class="col-xs-3">
+    {{ name }}
+  </div>
+  <div class="col-xs-3">
+    {{ user.lifepoints }}
+  </div>
+  <div class="col-xs-3">
+    {{ user.commanderDamage }}
+  </div>
+  <div class="col-xs-3">
+    <a class="btn btn-primary btn-block" ng-click="changeValue(name, 'lifepoints', 1)">+ Life</a>
+    <a class="btn btn-primary btn-block" ng-click="changeValue(name, 'lifepoints', -1)">- Life</a>
+    <a class="btn btn-primary btn-block" ng-click="changeValue(name, 'commanderDamage', 1)">+ Commander</a>
+    <a class="btn btn-primary btn-block" ng-click="changeValue(name, 'commanderDamage', -1)">- Commander</a>
+  </div>
+</div>
