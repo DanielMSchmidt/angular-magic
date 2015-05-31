@@ -20,6 +20,14 @@ angular
   ])
   .config(function ($routeProvider) {
     $routeProvider
+      .when('/interactive', {
+        templateUrl: 'views/interactive.html',
+        controller: 'InteractiveCtrl'
+      })
+      .when('/static', {
+        templateUrl: 'views/static.html',
+        controller: 'StaticCtrl'
+      })
       .when('/', {
         templateUrl: 'views/main.html',
         controller: 'MainCtrl'

@@ -1,0 +1,53 @@
+<form ng-submit="addUser()" style="padding-bottom: 20px;">
+   <input type="text" placeholder="Enter name" ng-model="name">
+  <input type="submit" class="btn btn-primary">
+</form>
+<table class="table table-striped">
+  <th>
+    <td>
+      Name
+    </td>
+    <td>
+      Life Points
+    </td>
+    <td>
+      Commander Damage
+    </td>
+    <td>
+      Actions
+    </td>
+  </th>
+  <tr class="row" ng-repeat="(name, user) in users" style="padding-bottom: 50px;">
+    <td>
+      {{ name }}
+    </td>
+    <td>
+      {{ user.lifepoints }}
+    </td>
+    <td>
+      {{ user.commanderDamage }}
+    </td>
+    <td>
+      <div class="row">
+        <div class="col-xs-6">
+          <h3>Life</h3>
+          <a class="btn btn-primary btn-block" ng-click="changeValue(name, 'lifepoints', 1)">+</a>
+          <a class="btn btn-primary btn-block" ng-click="changeValue(name, 'lifepoints', -1)">-</a>
+        </div>
+        <div class="col-xs-6">
+          <h3>Commander</h3>
+          <a class="btn btn-primary btn-block" ng-click="changeValue(name, 'commanderDamage', 1)">+</a>
+          <a class="btn btn-primary btn-block" ng-click="changeValue(name, 'commanderDamage', -1)">-</a>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-6">
+          <a class="btn btn-info" ng-click="resetUserNamed(name)">Zurücksetzen</a>
+        </div>
+        <div class="col-xs-6">
+          <a class="btn btn-danger" ng-click="removeUserNamed(name)">Löschen</a>
+        </div>
+      </div>
+    </td>
+  </tr>
+</table>
