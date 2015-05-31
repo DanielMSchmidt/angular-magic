@@ -8,9 +8,9 @@
  * Controller of the angularMagicApp
  */
 angular.module('angularMagicApp')
-  .controller('InteractiveCtrl', function () {
-    var user = {
-      lifepoints: 40,
-      commanderDamage: 0
-    };
+  .controller('InteractiveCtrl', function ($scope, SessionService) {
+    SessionService.create().then(function(response) {
+      $scope.sessionId = response.identifier;
+      $scope.$digest()
+    });
   });

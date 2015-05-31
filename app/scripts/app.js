@@ -24,8 +24,12 @@ angular
         templateUrl: 'views/interactive.html',
         controller: 'InteractiveCtrl'
       })
+      .when('/join', {
+        templateUrl: 'views/join.html',
+        controller: 'JoinCtrl'
+      })
       .when('/static', {
-        templateUrl: 'views/static.html',
+        templateUrl: 'views/game.html',
         controller: 'StaticCtrl'
       })
       .when('/', {
